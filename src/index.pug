@@ -1,0 +1,318 @@
+doctype html
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title High pass
+    link(rel="preload" href="fonts/RobotoBold.woff2" as="font")
+    link(rel="preload" href="fonts/RobotoRegular.woff2" as="font")
+    link(rel="preload" href="fonts/TTFirsNeue-Bold.woff2" as="font")
+    link(rel="preload" href="fonts/TTFirsNeue-Medium.woff2" as="font")
+    link(rel="preload" href="fonts/TTFirsNeue-Regular.woff2" as="font")
+    link(rel="icon" type="image/svg" href="./images/favicon.svg")
+    link(rel="stylesheet", href="main.min.css")
+    link(rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css")
+    script(defer src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js")
+    script(defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js")
+    script(defer src="https://api-maps.yandex.ru/2.1/?apikey=вашAPI-ключ&lang=ru_RU")
+    script(defer src="inputmask.min.js")
+    script(defer src="just-validate.min.js")
+    script(defer src="app.js")
+  body
+    header.header
+      .header__top
+        .container.header__container
+          a.logo-link(href="#")
+            img.logo-img(src="images/Logo.svg", alt="Лого")
+          nav.nav
+            .nav__wrapper
+              ul.nav__list
+                li.nav__item
+                  a.nav__link(href="#" tabindex=0) О студии
+                li.nav__item
+                  a.nav__link(href="#" tabindex=0) Наши проекты
+                li.nav__item
+                  a.nav__link(href="#" tabindex=0) Услуги
+                li.nav__item
+                  a.nav__link(href="#" tabindex=0) Мастер-классы
+                li.nav__item
+                  a.nav__link(href="#" tabindex=0) Контакты
+          .header__left
+            ul.socials
+              li.socials__item
+                a.socials__link(tabindex=0)
+                  svg(width="30" height="30" viewBox="0 0 30 30")
+                    use(xlink:href="images/sprite.svg#insta")
+              li.socials__item
+                a.socials__link(tabindex=0)
+                  svg(width="30" height="30" viewBox="0 0 30 30")
+                    use(xlink:href="images/sprite.svg#fb")
+              li.socials__item
+                a.socials__link(tabindex=0)
+                  svg(width="30" height="30" viewBox="0 0 30 30")
+                    use(xlink:href="images/sprite.svg#vk")
+            .search
+              form.search__form(method="GET" aria-label="Форма поиска")
+                input.search__input(type="search" name="search" aria-label="Строка поиска" placeholder="Что будем искать?")
+                button.search__btn-close(aria-label="Закрыть строку поиска")
+                  svg(width="20" height="20" viewBox="0 0 20 20")
+                    use(xlink:href="images/sprite.svg#close")
+              button.search__btn(aria-label="Найти")
+                svg(width="25" height="25" viewBox="0 0 25 25")
+                  use(xlink:href="images/sprite.svg#search")
+      .header__bottom
+        .container.header__container-bottom
+          nav.nav
+            button.burger-btn(aria-label="Меню")
+              svg(width="20" height="18" viewBox="0 0 20 18")
+                use(xlink:href="images/sprite.svg#burger")
+            .nav__wrapper.nav__burger
+              .scroll
+                ul.nav__list
+                  li.nav__item
+                    button.burger-btn-close(aria-label="Закрыть меню")
+                      svg(width="20" height="20" viewBox="0 0 20 20")
+                        use(xlink:href="images/sprite.svg#close")
+                  li.nav__item
+                    a.nav__link(href="#" tabindex=0) О студии
+                  li.nav__item
+                    a.nav__link(href="#" tabindex=0) Наши проекты
+                  li.nav__item
+                    a.nav__link(href="#" tabindex=0) Услуги
+                  li.nav__item
+                    a.nav__link(href="#" tabindex=0) Мастер-классы
+                  li.nav__item
+                    a.nav__link(href="#" tabindex=0) Контакты
+                  li.nav__item.nav__phone
+                    a.phone(href="#")
+                      svg.phone__img(width="22" height="22" viewBox="0 0 22 22")
+                        use(xlink:href="images/sprite.svg#phone")
+                      |+7 (495) 42-423-532
+    main
+      section.hero
+        .container
+          //- .hero__grid
+          .grid-row
+            .grid-column
+              .hero__card-main
+                picture
+                  source(srcset="images/hero-photo1-320.png" media="(max-width: 320px)")
+                  source(srcset="images/hero-photo1-768.png" media="(max-width: 768px)")
+                  source(srcset="images/hero-photo1-1024.png" media="(max-width: 1024px)")
+                  img(src="images/hero-photo1.png" alt="изображение")
+                span.hero__card-tag #мастеркласс
+                .hero__card-content
+                  p.hero__card-descr Мастер-класс от&nbsp;Игоря&nbsp;Робова
+                  h3.hero__card-heading Неоновый фотосет&nbsp;2.0 7&nbsp;июля 20:00
+                  a.hero__card-btn.btn(tabindex=0) Узнать больше
+            .grid-column
+              h2.hero__heading Работы участников предыдущего мастер-класса
+              ul.small-grid
+                //- .hero__card
+                li.hero__card
+                  picture
+                    source(srcset="images/hero-photo2-320.png" media="(max-width: 320px)")
+                    source(srcset="images/hero-photo2-768.png" media="(max-width: 768px)")
+                    source(srcset="images/hero-photo2-1024.png" media="(max-width: 1024px)")
+                    img(src="images/hero-photo2.png" alt="изображение")
+                //- .hero__card
+                li.hero__card
+                  picture
+                    source(srcset="images/hero-photo3-320.png" media="(max-width: 320px)")
+                    source(srcset="images/hero-photo3-768.png" media="(max-width: 768px)")
+                    source(srcset="images/hero-photo3-1024.png" media="(max-width: 1024px)")
+                    img(src="images/hero-photo3.png" alt="изображение")
+                //- .hero__card
+                li.hero__card
+                  picture
+                    source(srcset="images/hero-photo4-320.png" media="(max-width: 320px)")
+                    source(srcset="images/hero-photo4-768.png" media="(max-width: 768px)")
+                    source(srcset="images/hero-photo4-1024.png" media="(max-width: 1024px)")
+                    img(src="images/hero-photo4.png" alt="изображение")
+      section.about
+        .container.about__container
+          .about__left
+            h2.about__heading О студии
+            p.about__descr В рамках спецификации современных стандартов, интерактивные прототипы, инициированные исключительно синтетически, ограничены исключительно образом мышления. Предварительные выводы неутешительны: высокотехнологичная концепция общественного уклада требует от нас анализа соответствующих условий активизации! Следует отметить, что семантический разбор внешних противодействий  фиксирует необходимость распределения внутренних резервов и ресурсов. Безусловно, граница обучения кадров предоставляет широкие возможности для первоочередных требований. Повседневная практика показывает, что глубокий уровень погружения предполагает независимые способы реализации новых принципов формирования материально&nbsp;-&nbsp;технической и кадровой базы. Приятно, граждане, наблюдать, как явные признаки институционализации являются только методом политического участия и нарушающими общечеловеческие нормы этики.
+          .about__right.subscription
+            .subscription__img
+              picture
+                source(srcset="images/about-photo320.png" media="(max-width: 576px)")
+                source(srcset="images/about-photo768.png" media="(max-width: 768px)")
+                source(srcset="images/about-photo1024.png" media="(max-width: 1024px)")
+                img(src="images/about-photo.png" alt="изображение")
+            h3.subscription__heading Подписаться на рассылку
+            form.subscription__form(action="mail.php" method="GET")
+              input.subscription__input(type="email" placeholder="E-mail" data-validate-field="mail" required)
+              button.btn.subscription__btn Отправить
+      section.projects
+        .container
+          h2.projects__heading Наши проекты
+          .projects__container
+            .card
+              .card__img
+                picture
+                  source(srcset="images/projects1-320.png" media="(max-width: 576px)")
+                  source(srcset="images/projects1-768.png" media="(max-width: 768px)")
+                  source(srcset="images/projects1-1024.png" media="(max-width: 1024px)")
+                  img(src="images/projects1.png" alt="изображение")
+              span.card__tag #пейзаж
+              p.card__descr Синтетически, смешаны с&nbsp;не уникальными данными до степени...
+              span.card__date
+                svg(width="14" height="14" viewBox="0 -2 14 14")
+                  use(xlink:href="images/sprite.svg#calendar")
+                |16 июня
+            .card
+              .card__img
+                picture
+                  source(srcset="images/projects2-320.png" media="(max-width: 576px)")
+                  source(srcset="images/projects2-768.png" media="(max-width: 768px)")
+                  source(srcset="images/projects2-1024.png" media="(max-width: 1024px)")
+                  img(src="images/projects2.png" alt="изображение")
+              span.card__tag #портрет
+              p.card__descr В своём стремлении улучшить опыт мы упускаем, что явные...
+              span.card__date
+                svg(width="14" height="14" viewBox="0 -2 14 14")
+                  use(xlink:href="images/sprite.svg#calendar")
+                |28 мая
+            .card
+              .card__img
+                picture
+                  source(srcset="images/projects3-320.png" media="(max-width: 576px)")
+                  source(srcset="images/projects3-768.png" media="(max-width: 992px)")
+                  source(srcset="images/projects3-1024.png" media="(max-width: 1024px)")
+                  img(src="images/projects3.png" alt="изображение")
+              span.card__tag #предмет
+              p.card__descr Равным образом, высокое качество позиционных...
+              span.card__date
+                svg(width="14" height="14" viewBox="0 -2 14 14")
+                  use(xlink:href="images/sprite.svg#calendar")
+                |14 мая
+            .card
+              .card__img
+                picture
+                  source(srcset="images/projects4-320.png" media="(max-width: 576px)")
+                  source(srcset="images/projects4-768.png" media="(max-width: 768px)")
+                  source(srcset="images/projects4-1024.png" media="(max-width: 1024px)")
+                  img(src="images/projects4.png" alt="изображение")
+              span.card__tag #fuji
+              .card__content
+                span.card__date
+                  svg(width="14" height="14" viewBox="0 -2 14 14")
+                    use(xlink:href="images/sprite.svg#calendar")
+                  |9 апреля
+                h3.card__heading Cемантический разбор
+                p.card__descr В рамках спецификации современных стандартов, интерактивные прототипы
+                a.btn.card__btn(href="#" tabindex=0) О проекте
+            .card
+              .card__img
+                picture
+                  source(srcset="images/projects5-320.png" media="(max-width: 576px)")
+                  source(srcset="images/projects5-768.png" media="(max-width: 768px)")
+                  source(srcset="images/projects5-1024.png" media="(max-width: 1024px)")
+                  img(src="images/projects5.png" alt="изображение")
+              span.card__tag #проектзабвение
+              .card__content
+                span.card__date
+                  svg(width="14" height="14" viewBox="0 -2 14 14")
+                    use(xlink:href="images/sprite.svg#calendar")
+                  |20 марта
+                h3.card__heading Забвение
+                p.card__descr Играет важную роль в формировании глубокомысленных рассуждений
+                a.btn.card__btn(href="#" tabindex=0) О проекте
+            .card
+              .card__img
+                picture
+                  source(srcset="images/projects6-320.png" media="(max-width: 576px)")
+                  source(srcset="images/projects6-768.png" media="(max-width: 768px)")
+                  source(srcset="images/projects6-1024.png" media="(max-width: 1024px)")
+                  img(src="images/projects6.png" alt="изображение")
+              span.card__tag #ретушь
+              p.card__descr Как принято считать, многие известные личности и по сей день остаются уделом либералов...
+              span.card__date
+                svg(width="14" height="14" viewBox="0 -2 14 14")
+                  use(xlink:href="images/sprite.svg#calendar")
+                |9 марта
+            .card
+              .card__img
+                picture
+                  source(srcset="images/projects7-320.png" media="(max-width: 576px)")
+                  source(srcset="images/projects7-768.png" media="(max-width: 768px)")
+                  source(srcset="images/projects7-1024.png" media="(max-width: 1024px)")
+                  img(src="images/projects7.png" alt="изображение")
+              span.card__tag #портрет
+              p.card__descr С учётом сложившейся международной обстановки, новая модель организационной...
+              span.card__date
+                svg(width="14" height="14" viewBox="0 -2 14 14")
+                  use(xlink:href="images/sprite.svg#calendar")
+                |1 марта
+      section.contacts
+        .container.contacts__container
+          h2.contacts__heading Контакты
+          .contacts__wrapper
+            .map
+              #map
+              .map__popup.popup
+                .popup__wrapper
+                  button.popup__btn-close(aria-label="Закрыть окно")
+                    svg(width="20" height="20" viewBox="0 0 20 20")
+                      use(xlink:href="images/sprite.svg#close")
+                  .popup__content
+                    h3.popup__heading Студия “High pass”
+                    address.popup__address 107045, Москва, Даев переулок, дом 41, <nobr>бизнес-центр</nobr> «Даев Плаза», этаж&nbsp;8, офис № 82
+                    a.phone.popup__phone(href="#")
+                      svg.phone__img(width="22" height="22" viewBox="0 0 22 22")
+                        use(xlink:href="images/sprite.svg#phone")
+                      |+7 (495) 42-423-532
+            .contacts__form
+              h3.contact__subheading Оставить заявку
+              p.contacts__descr Оставьте ваши данные, указав в графе “Комментарий” желаемые время и дату съемки или другого мероприятия
+              form.form(enctype="multipart/form-data" action="mail.php" method="POST")
+                input(type="hidden" name="admin_email[]" value="ksenia1229@mail.ru")
+                input(type="hidden" name="form_subject" value="Тема письма")
+                label.form__label
+                  input.form__input(type="text" name="name" placeholder="Имя" data-validate-field="name" required)
+                label.form__label
+                  input.form__input(type="email" name="email" placeholder="E-mail" data-validate-field="mail" data-validate-rules="mail" required)
+                textarea.form__input.form__input-text(name="message" placeholder="Комментарий")
+                button.btn.form__btn Отправить
+    footer.footer
+      .footer__top
+        .container.footer__container
+          .footer__left
+            a.footer__logo.logo-link(href="#")
+              img.logo-img(src="images/Logo.svg", alt="Лого")
+            p.logo-descr Фотостудия High pass<sup>&reg;</sup> 2018-2020
+          .footer__center
+            p
+              q.quote Которая из моих фотографий самая любимая? Та, которую я собираюсь снять завтра.
+              cite.quote-author &copy; Имоджен Каннингем
+          .footer__right
+            p.footer__more Больше интересного:
+            ul.socials.footer__socials
+              li.socials__item
+                a.socials__link(tabindex=0)
+                  svg(width="30" height="30" viewBox="0 0 30 30")
+                    use(xlink:href="images/sprite.svg#insta")
+              li.socials__item
+                a.socials__link(tabindex=0)
+                  svg(width="30" height="30" viewBox="0 0 30 30")
+                    use(xlink:href="images/sprite.svg#fb")
+              li.socials__item
+                a.socials__link(tabindex=0)
+                  svg(width="30" height="30" viewBox="0 0 30 30")
+                    use(xlink:href="images/sprite.svg#vk")
+      .footer__bottom
+        .container
+          a.footer__logo.logo-link(href="#")
+            img.logo-img(src="images/Logo.svg", alt="Лого")
+          p.logo-descr Фотостудия High pass<sup>&reg;</sup> 2018-2020
+
+
+
+
+
+
+
+

@@ -1,0 +1,166 @@
+@import 'variables.scss';
+
+.nav__link {
+  position: relative;
+  transition: color 0.2s ease-in-out;
+  z-index: 1;
+}
+.nav__item .nav__link:active {
+  color: $mainBtnColorDark;
+}
+
+.search__input {
+  &:focus-visible {
+    border-bottom: 1px solid $mainBtnColor;
+  }
+  &:active {
+    border-bottom: 1px solid $mainBtnColorDark;
+  }
+}
+.socials__item:active {
+  .socials__link {
+    &:active svg {
+      fill: $mainBtnColorDark;
+    }
+  }
+}
+.socials__link {
+  & svg{
+    fill: $svgColor;
+    transition: fill 0.2s ease-in-out;
+  }
+  &:active svg {
+    fill: $mainBtnColorDark;
+  }
+}
+
+.btn {
+  transition: background-color 0.2s ease-in-out, border 0.1s ease-in-out;
+  &:focus-visible {
+    outline: none;
+    border: none;
+  }
+  &:active {
+    background-color: $mainBtnColorDark;
+    border: 3px solid $mainBtnColorDark;
+  }
+}
+
+.btn.card__btn {
+  &:active:not(:hover) {
+    outline: none;
+    background-color: $mainBtnColorDark;
+    border: 3px solid $mainBtnColorDark;
+  }
+}
+//?????????????????
+.form__input::-moz-placeholder,
+.subscription__input::-moz-placeholder {
+  transition: color 0.2s ease-in-out, border 0.1s ease-in-out;
+}
+.form__input:hover::-moz-placeholder {
+  color: $mainBtnColor;
+}
+.subscription__input:hover::-moz-placeholder {
+  color: $mainBtnColor;
+}
+//
+.form__input::-webkit-input-placeholder,
+.subscription__input::-webkit-input-placeholder {
+  transition: color 0.2s ease-in-out, border 0.1s ease-in-out;
+}
+.form__input:active:not(:focus-visible) {
+  border: 1px solid transparent;
+  color: $textColor;
+}
+.subscription__input:active:not(:focus-visible) {
+  border: 1px solid transparent;
+  color: $textColor;
+}
+
+@media(min-width: 1022px) {
+  .logo-link {
+    &:focus-visible {
+      border: 1px solid $mainBtnColor;
+      outline: none;
+    }
+  }
+
+  .nav__link {
+    &:hover {
+      color: $mainBtnColor;
+    }
+    &::before {
+      position: absolute;
+      content: '';
+      top: -2px;
+      left: -5px;
+      right: -5px;
+      bottom: -2px;
+      background-color: transparent;
+      z-index: -1;
+      transition: background-color 0.2s ease-in-out;
+    }
+    &:focus-visible::before {
+      background-color: $mainBtnColorDim;
+    }
+    &:focus-visible:not(:hover) {
+      border: none;
+      outline: none;
+    }
+  }
+
+  .socials__link {
+    &:hover:not(:focus-visible) svg {
+      fill: $mainBtnColor;
+    }
+    &:focus-visible svg,
+    &:focus-visible {
+      fill: $mainBtnColorDim;
+      outline: none;
+      border: none;
+    }
+  }
+
+  .btn {
+    &:hover:not(:active) {
+      background-color: $mainBtnColorDim;
+      border: 3px solid $mainBtnColorDim;
+    }
+    &:focus-visible {
+      outline: none;
+      border: none;
+      border: 3px solid $mainBtnColorDark;
+    }
+  }
+
+  .btn.card__btn {
+    &:focus-visible {
+      outline: none;
+      border: none;
+      background-color: $mainBtnColorDim;
+      border: 3px solid $mainBtnColor;
+    }
+    // &:hover:not(:active),
+    &:hover:not(:focus-visible) {
+      background-color: $mainBtnColor;
+      border: 3px solid $mainBtnColor;
+    }
+  }
+
+  .form__input:hover:not(:focus-visible)::-webkit-input-placeholder {
+    color: $mainBtnColor;
+  }
+  .subscription__input:hover:not(:focus-visible)::-webkit-input-placeholder {
+    color: $mainBtnColor;
+  }
+  .form__input:focus-visible {
+    border: 1px solid $mainBtnColor;
+  }
+  .subscription__input:focus-visible {
+    border: 1px solid $mainBtnColor;
+  }
+
+
+}
+
